@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "challenge_assignments" ADD COLUMN     "currentMilestone" INTEGER NOT NULL DEFAULT 1,
+ADD COLUMN     "lastUpdate" TEXT,
+ADD COLUMN     "progress" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

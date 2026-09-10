@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  role     String @default("CITIZEN")
+  departments  String[] @default([])
+  skills       String[] @default([])
+  researchAreas String[] @default([])
+
+  reportedChallenges   Challenge[]           @relation("CitizenChallenges")
+  challengeAssignments ChallengeAssignment[] @relation("UniversityAssignments")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([role])
+  @@map("users")
+}
+
+model Challenge {
+  id                   String  @id @default(cuid())
+  trackingId           String  @unique
+  title                String
+  description          String
+  category             String
+  location             String
+  latitude             Float?
+  longitude            Float?
+  evidenceUrl          String?
+  evidencePublicId     String?
+  evidenceResourceType String?
+  priority             String  @default("Medium")
+  aiCategory    String?
+  aiPriority    String?
+  aiExplanation String?
+  aiAnalyzedAt  DateTime?
+  status               String  @default("Under Review")
+  supporters           Int     @default(1)
+  progress             Int     @default(20)
+  aiStatus      String   @default("NOT_ANALYZED")
+
+  citizenId String?
+  citizen   User?   @relation("CitizenChallenges", fields: [citizenId], references: [id], onDelete: SetNull)
+
+  universityAssignments ChallengeAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([category])
+  @@index([citizenId])
+  @@map("challenges")
+}
+
+model ChallengeAssignment {
+  id String @id @default(cuid())
+
+  challengeId String
+  challenge   Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  universityId String
+  university   User   @relation("UniversityAssignments", fields: [universityId], references: [id], onDelete: Cascade)
+
+  status      String    @default("INVITED")
+  proposal    String?
+  assignedAt  DateTime  @default(now())
+  respondedAt DateTime?
+
+  progress              Int       @default(0)
+  currentMilestone      Int       @default(1)
+  lastUpdate            String?
+  validationStatus      String    @default("NOT_REQUESTED")
+  validationFeedback    String?
+  validationRequestedAt DateTime?
+  validatedAt           DateTime?
+  updatedAt             DateTime  @default(now()) @updatedAt
+
+  teamName      String?
+  facultyMentor String?
+  studentCount  Int     @default(0)
+
+  @@unique([challengeId, universityId])
+  @@index([challengeId])
+  @@index([universityId])
+  @@index([status])
+  @@map("challenge_assignments")
+}
