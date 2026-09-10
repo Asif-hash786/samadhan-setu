@@ -33,11 +33,7 @@ function AdminLayout({ title, subtitle, children }) {
               </h2>
             </div>
           </div>
-
-          <button className="relative grid size-10 place-items-center rounded-xl bg-slate-100 text-slate-600">
-            <NotificationBell />
-            <span className="absolute right-2 top-2 size-2 rounded-full bg-red-500" />
-          </button>
+          <NotificationBell />
         </header>
 
         <main className="mx-auto max-w-7xl p-5 md:p-8">
