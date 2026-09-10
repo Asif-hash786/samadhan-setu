@@ -20,11 +20,25 @@ import ProjectTeams from "./pages/ProjectTeams";
 import UniversityProfile from "./pages/UniversityProfile";
 import UniversityRegister from "./pages/UniversityRegister";
 import UniversityApplications from "./pages/UniversityApplications";
+import { useSelector } from "react-redux";
+function HomeRoute() {
+  const { user } = useSelector((state) => state.auth);
+
+  if (user?.role === "ADMIN") {
+    return <Navigate to="/admin/dashboard" replace />;
+  }
+
+  if (user?.role === "UNIVERSITY") {
+    return <Navigate to="/university/dashboard" replace />;
+  }
+
+  return <Home />;
+}
 function App() {
   return (
     <Routes>
       {/* Public routes */}
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomeRoute />} />
       <Route path="/auth" element={<Auth />} />
       <Route
         path="/university/register"

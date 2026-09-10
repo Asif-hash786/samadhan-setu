@@ -6,6 +6,7 @@ import {
   Sparkles,
   XCircle,
 } from "lucide-react";
+import { X } from "lucide-react";
 import {
   useEffect,
   useMemo,
@@ -43,7 +44,7 @@ function UniversityDashboard() {
 
       setError(
         requestError.response?.data?.message ||
-          "Unable to load university invitations."
+        "Unable to load university invitations."
       );
     } finally {
       setLoading(false);
@@ -141,7 +142,7 @@ function UniversityDashboard() {
 
       setError(
         requestError.response?.data?.message ||
-          "Unable to respond to this invitation."
+        "Unable to respond to this invitation."
       );
     } finally {
       setResponding(false);
@@ -307,11 +308,10 @@ function UniversityDashboard() {
                 <button
                   type="button"
                   onClick={() => openInvitation(assignment)}
-                  className={`mt-5 rounded-xl py-3 text-sm font-bold transition ${
-                    assignment.status === "INVITED"
+                  className={`mt-5 rounded-xl py-3 text-sm font-bold transition ${assignment.status === "INVITED"
                       ? "bg-orange-500 text-white hover:bg-orange-600"
                       : "bg-slate-100 text-slate-700"
-                  }`}
+                    }`}
                 >
                   {assignment.status === "INVITED"
                     ? "Review invitation"
@@ -330,8 +330,16 @@ function UniversityDashboard() {
         >
           <article
             onClick={(event) => event.stopPropagation()}
-            className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl md:p-8"
+            className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl md:p-8"
           >
+            <button
+              type="button"
+              onClick={() => setSelectedAssignment(null)}
+              aria-label="Close project invitation"
+              className="absolute right-4 top-4 z-10 grid size-10 cursor-pointer place-items-center rounded-full bg-orange-50 text-orange-700 transition hover:bg-orange-100 hover:text-orange-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            >
+              <X size={22} />
+            </button>
             <p className="text-xs font-bold tracking-widest text-orange-600">
               PROJECT INVITATION •{" "}
               {selectedAssignment.challenge.trackingId}
@@ -341,46 +349,46 @@ function UniversityDashboard() {
               {selectedAssignment.challenge.title}
             </h2>
             <section className="mt-6 rounded-2xl border border-orange-200 bg-orange-50/50 p-5">
-  <h3 className="text-xs font-bold tracking-widest text-orange-600">
-    CITIZEN EVIDENCE
-  </h3>
+              <h3 className="text-xs font-bold tracking-widest text-orange-600">
+                CITIZEN EVIDENCE
+              </h3>
 
-  {selectedAssignment.challenge.evidenceUrl ? (
-    <div className="mt-4">
-      {selectedAssignment.challenge.evidenceResourceType === "video" ? (
-        <video
-          key={selectedAssignment.challenge.evidenceUrl}
-          src={selectedAssignment.challenge.evidenceUrl}
-          controls
-          playsInline
-          preload="metadata"
-          className="max-h-96 w-full rounded-xl bg-black"
-        >
-          Your browser does not support video playback.
-        </video>
-      ) : (
-        <img
-          src={selectedAssignment.challenge.evidenceUrl}
-          alt={`Evidence for ${selectedAssignment.challenge.title}`}
-          className="max-h-96 w-full rounded-xl bg-white object-contain"
-        />
-      )}
+              {selectedAssignment.challenge.evidenceUrl ? (
+                <div className="mt-4">
+                  {selectedAssignment.challenge.evidenceResourceType === "video" ? (
+                    <video
+                      key={selectedAssignment.challenge.evidenceUrl}
+                      src={selectedAssignment.challenge.evidenceUrl}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="max-h-96 w-full rounded-xl bg-black"
+                    >
+                      Your browser does not support video playback.
+                    </video>
+                  ) : (
+                    <img
+                      src={selectedAssignment.challenge.evidenceUrl}
+                      alt={`Evidence for ${selectedAssignment.challenge.title}`}
+                      className="max-h-96 w-full rounded-xl bg-white object-contain"
+                    />
+                  )}
 
-      <a
-        href={selectedAssignment.challenge.evidenceUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-3 inline-block text-sm font-bold text-orange-700 underline hover:text-orange-900"
-      >
-        Open original evidence
-      </a>
-    </div>
-  ) : (
-    <p className="mt-3 text-sm text-slate-500">
-      No photo or video was attached to this report.
-    </p>
-  )}
-</section>
+                  <a
+                    href={selectedAssignment.challenge.evidenceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-sm font-bold text-orange-700 underline hover:text-orange-900"
+                  >
+                    Open original evidence
+                  </a>
+                </div>
+              ) : (
+                <p className="mt-3 text-sm text-slate-500">
+                  No photo or video was attached to this report.
+                </p>
+              )}
+            </section>
 
             <p className="mt-4 leading-7 text-slate-600">
               {selectedAssignment.challenge.description}
