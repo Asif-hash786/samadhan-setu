@@ -196,10 +196,10 @@ function CitizenDashboard() {
       title={firstName ? `Welcome back, ${firstName}` : "Your dashboard"}
       subtitle="CITIZEN DASHBOARD"
     >
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-blue-950 to-blue-700 p-7 text-white md:p-10">
+      <section className="relative overflow-hidden rounded-3xl bg-linear-to-br from-slate-950 via-blue-950 to-blue-700 p-7 text-white md:p-10">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-20 -top-24 size-80 rounded-full border-[50px] border-white/5"
+          className="pointer-events-none absolute -right-20 -top-24 size-80 rounded-full border-50 border-white/5"
         />
 
         <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
@@ -415,7 +415,7 @@ function CitizenDashboard() {
                     </span>
                   </div>
 
-                  <h3 className="mt-3 break-words font-bold leading-6 text-slate-900">
+                  <h3 className="mt-3 wrap-break-word font-bold leading-6 text-slate-900">
                     {report.title}
                   </h3>
 
@@ -450,13 +450,13 @@ function CitizenDashboard() {
             </div>
           ) : (
             <>
-              <h2 className="mt-3 break-words text-xl font-extrabold leading-7 text-slate-900">
+              <h2 className="mt-3 wrap-break-word text-xl font-extrabold leading-7 text-slate-900">
                 {activeReport.title}
               </h2>
 
               <p className="mt-3 flex items-start gap-2 text-sm text-slate-500">
                 <MapPin size={16} className="mt-0.5 shrink-0" />
-                <span className="break-words">
+                <span className="wrap-break-word">
                   {activeReport.location || "Location not provided"}
                 </span>
               </p>
@@ -481,7 +481,7 @@ function CitizenDashboard() {
                 >
                   <div
                     style={{ width: `${progress ?? 0}%` }}
-                    className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-500 motion-reduce:transition-none"
+                    className="h-full rounded-full bg-linear-to-r from-blue-600 to-cyan-400 transition-all duration-500 motion-reduce:transition-none"
                   />
                 </div>
 
