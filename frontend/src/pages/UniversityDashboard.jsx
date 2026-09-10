@@ -164,7 +164,7 @@ function UniversityDashboard() {
       title="Recommended challenges"
       subtitle="UNIVERSITY HUB"
     >
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-700 to-orange-500 p-7 text-white shadow-xl shadow-orange-200 md:p-9">
+      <section className="relative overflow-hidden rounded-3xl bg-linear-to-r from-orange-700 to-orange-500 p-7 text-white shadow-xl shadow-orange-200 md:p-9">
         <div className="relative z-10 max-w-2xl">
           <p className="text-xs font-bold tracking-[0.2em] text-orange-200">
             CAMPUS TO COMMUNITY
@@ -180,7 +180,7 @@ function UniversityDashboard() {
           </p>
         </div>
 
-        <div className="absolute -right-20 -top-24 size-72 rounded-full border-[48px] border-white/5" />
+        <div className="absolute -right-20 -top-24 size-72 rounded-full border-48 border-white/5" />
       </section>
 
       {error && !selectedAssignment && (

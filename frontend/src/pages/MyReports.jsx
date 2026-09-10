@@ -221,7 +221,7 @@ function MyReports() {
 
   return (
     <CitizenLayout title="My reports" subtitle="CITIZEN ACTIVITY">
-      <section className="flex flex-col justify-between gap-5 rounded-3xl bg-gradient-to-r from-blue-700 to-blue-500 p-7 text-white shadow-xl shadow-blue-200 sm:flex-row sm:items-center">
+      <section className="flex flex-col justify-between gap-5 rounded-3xl bg-linear-to-r from-blue-700 to-blue-500 p-7 text-white shadow-xl shadow-blue-200 sm:flex-row sm:items-center">
         <div>
           <FileText size={30} className="text-blue-200" />
 

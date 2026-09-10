@@ -81,7 +81,7 @@ function EvidencePreview({ challenge }) {
   }
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-blue-50 via-slate-50 to-indigo-100 text-blue-600">
+    <div className="flex h-full flex-col items-center justify-center gap-3 bg-linear-to-br from-blue-50 via-slate-50 to-indigo-100 text-blue-600">
       <FileText size={34} strokeWidth={1.4} />
       <span className="text-xs font-semibold">
         {challenge.evidenceResourceType === "video"
@@ -333,10 +333,10 @@ function Home() {
 
       <main>
         <section className="mx-auto max-w-7xl px-5 pb-10 pt-10 md:pt-16">
-          <div className="home-enter relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-blue-950 to-blue-700 px-6 py-12 text-white md:p-12 lg:p-16">
+          <div className="home-enter relative overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-blue-950 to-blue-700 px-6 py-12 text-white md:p-12 lg:p-16">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-28 -top-28 size-96 rounded-full border-[60px] border-white/5"
+              className="pointer-events-none absolute -right-28 -top-28 size-96 rounded-full border-60 border-white/5"
             />
 
             <div className="relative grid items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
@@ -611,7 +611,7 @@ function Home() {
                         {challenge.trackingId || challenge.id}
                       </p>
 
-                      <h3 className="mt-2 break-words text-lg font-extrabold leading-6">
+                      <h3 className="mt-2 wrap-break-word text-lg font-extrabold leading-6">
                         {challenge.title}
                       </h3>
 
@@ -621,7 +621,7 @@ function Home() {
 
                       <p className="mb-5 mt-4 flex items-start gap-2 text-sm text-slate-500">
                         <MapPin size={16} className="mt-0.5 shrink-0" />
-                        <span className="break-words">
+                        <span className="wrap-break-word">
                           {challenge.location || "Location not provided"}
                         </span>
                       </p>
@@ -658,7 +658,7 @@ function Home() {
           id="process"
           className="mx-auto max-w-7xl scroll-mt-24 px-5 pb-16"
         >
-          <div className="rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-cyan-50 px-6 py-10 md:p-10">
+          <div className="rounded-4xl border border-blue-100 bg-linear-to-br from-blue-50 via-white to-cyan-50 px-6 py-10 md:p-10">
             <p className="text-xs font-bold tracking-[0.2em] text-blue-600">
               HOW IT WORKS
             </p>
