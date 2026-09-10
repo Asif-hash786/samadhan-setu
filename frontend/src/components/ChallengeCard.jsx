@@ -34,7 +34,7 @@ function ChallengeCard({ challenge, onView }) {
             title={challenge.category}
             className="flex h-12 min-w-0 items-center rounded-xl bg-blue-50 px-3 text-xs font-bold leading-4 text-blue-700"
           >
-            <span className="line-clamp-2 break-words">
+            <span className="line-clamp-2 wrap-break">
               {challenge.category || "Uncategorized"}
             </span>
           </span>
@@ -46,7 +46,7 @@ function ChallengeCard({ challenge, onView }) {
               "bg-slate-100 text-slate-700"
             }`}
           >
-            <span className="line-clamp-2 break-words">
+            <span className="line-clamp-2 wrap-break">
               {challenge.status || "Status unavailable"}
             </span>
           </span>
@@ -61,12 +61,12 @@ function ChallengeCard({ challenge, onView }) {
 
         <h2
           title={challenge.title}
-          className="mt-2 line-clamp-2 h-12 break-words text-lg font-extrabold leading-6 text-slate-900"
+          className="mt-2 line-clamp-2 h-12 wrap-break text-lg font-extrabold leading-6 text-slate-900"
         >
           {challenge.title}
         </h2>
 
-        <p className="mt-3 line-clamp-3 h-[72px] break-words text-sm leading-6 text-slate-500">
+        <p className="mt-3 line-clamp-3 h-18 wrap-break text-sm leading-6 text-slate-500">
           {challenge.description || "No description provided."}
         </p>
 
@@ -79,7 +79,7 @@ function ChallengeCard({ challenge, onView }) {
 
             <p
               title={challenge.location}
-              className="line-clamp-2 break-words text-sm leading-5 text-slate-500"
+              className="line-clamp-2 wrap-break text-sm leading-5 text-slate-500"
             >
               {challenge.location || "Location not provided"}
             </p>
@@ -108,7 +108,7 @@ function ChallengeCard({ challenge, onView }) {
             className="h-2 overflow-hidden rounded-full bg-slate-100"
           >
             <div
-              className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400"
+              className="h-full rounded-full bg-linear-to-r from-blue-600 to-cyan-400"
               style={{ width: `${progress ?? 0}%` }}
             />
           </div>

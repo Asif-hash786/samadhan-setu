@@ -240,7 +240,7 @@ function NotificationBell() {
                     <p className="text-sm font-bold text-slate-800">
                       {item.title}
                     </p>
-                    <p className="mt-1 line-clamp-2 break-words text-xs leading-5 text-slate-500">
+                    <p className="mt-1 line-clamp-2 wrap-break text-xs leading-5 text-slate-500">
                       {item.description}
                     </p>
                   </div>
