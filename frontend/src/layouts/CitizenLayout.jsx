@@ -42,7 +42,7 @@ function CitizenLayout({ title, subtitle, children }) {
                 {subtitle}
               </p>
 
-              <h2 className="mt-1 break-words text-xl font-extrabold leading-snug text-slate-900 md:text-2xl">
+              <h2 className="mt-1 wrap-break text-xl font-extrabold leading-snug text-slate-900 md:text-2xl">
                 {title}
               </h2>
             </div>
