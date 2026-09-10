@@ -83,7 +83,7 @@ function ChallengeModal({ challenge, onClose }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/60 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-100 grid place-items-center bg-slate-950/60 p-4 backdrop-blur-sm"
     >
       <article
         role="dialog"
@@ -94,7 +94,7 @@ function ChallengeModal({ challenge, onClose }) {
       >
         <div className="flex items-start justify-between gap-5">
           <div className="min-w-0">
-            <p className="break-words text-xs font-bold tracking-widest text-blue-600">
+            <p className="wrap-break-word text-xs font-bold tracking-widest text-blue-600">
               {challenge.trackingId || challenge.id} •{" "}
               {challenge.category}
             </p>
@@ -114,7 +114,7 @@ function ChallengeModal({ challenge, onClose }) {
           </button>
         </div>
 
-        <p className="mt-5 whitespace-pre-wrap break-words leading-7 text-slate-600">
+        <p className="mt-5 whitespace-pre-wrap wrap-break-word leading-7 text-slate-600">
           {challenge.description}
         </p>
 
